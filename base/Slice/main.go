@@ -14,4 +14,8 @@ func main() {
 	b[1] = 200
 	fmt.Println(a)
 	fmt.Println(b)
+	/* sliceはappendで追加することができる */
+	b = append(b, 1000)
+	fmt.Println(a)
+	fmt.Println(b)
 }
