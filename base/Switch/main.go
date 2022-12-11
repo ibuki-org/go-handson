@@ -9,6 +9,7 @@ import (
 func main() {
 	x := hello.Input("type a number")
 	fmt.Print(x + "月は、")
+	/* strconv.Atoiのerr処理は以下のように省略できる */
 	switch n, err := strconv.Atoi(x); n {
 	case 0:
 		fmt.Println("整数値がえられません")
