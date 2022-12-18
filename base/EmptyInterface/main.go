@@ -5,7 +5,7 @@ import "fmt"
 type General interface{}
 
 type GData interface {
-	Set(nm string, g General)
+	Set(nm string, g General) GData
 	Print()
 }
 
