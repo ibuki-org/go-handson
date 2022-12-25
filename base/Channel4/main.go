@@ -7,6 +7,7 @@ import (
 )
 
 func prmsg(n int, s string) {
+	// firstで変更されたchannelの値を出力している
 	fmt.Println(s)
 	time.Sleep(time.Duration(n) * time.Second)
 }
