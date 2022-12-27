@@ -2,6 +2,7 @@ package main
 
 import (
 	"fyne.io/fyne/app"
+	"fyne.io/fyne/container"
 	"fyne.io/fyne/widget"
 )
 
@@ -10,7 +11,10 @@ func main() {
 
 	w := a.NewWindow("Hello")
 	w.SetContent(
-		widget.NewLabel("Hello Fyne!"),
+		container.NewVBox(
+			widget.NewLabel("Hello Fyne!"),
+			widget.NewLabel("This is sampleapplication!"),
+		),
 	)
 
 	w.ShowAndRun()
