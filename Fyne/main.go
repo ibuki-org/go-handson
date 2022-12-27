@@ -8,9 +8,10 @@ import (
 )
 
 func main() {
-	c := 0
 	a := app.New()
 	l := widget.NewLabel("Hello Fyne!")
+	e := widget.NewEntry()
+	e.SetText("0")
 	w := a.NewWindow("Hello")
 	//w.SetContent(
 	//	container.NewVBox(
@@ -20,13 +21,21 @@ func main() {
 	//)
 	w.SetContent(
 		container.NewVBox(
-			l,
+			l, e,
 			widget.NewButton("Click Me!", func() {
-				c++
-				l.SetText("Hello Fyne! " + strconv.Itoa(c))
+				n, _ := strconv.Atoi(e.Text)
+				l.SetText("Total: " + strconv.Itoa(total(n)))
 			}),
 		),
 	)
 
 	w.ShowAndRun()
+}
+
+func total(n int) int {
+	t := 0
+	for i := 0; i <= n; i++ {
+		t += i
+	}
+	return t
 }
