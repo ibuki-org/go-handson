@@ -18,8 +18,15 @@ func main() {
 	if er != nil {
 		tf, _ = template.New("index").Parse("<html><body><h1>NO TEMPLATE.</h1></body></html>")
 	}
+	item := struct {
+		Title   string
+		Message string
+	}{
+		Title:   "send values",
+		Message: "this is a message.",
+	}
 	th := func(w http.ResponseWriter, rq *http.Request) {
-		er = tf.Execute(w, nil)
+		er = tf.Execute(w, item)
 		if er != nil {
 			log.Fatal(er)
 		}
