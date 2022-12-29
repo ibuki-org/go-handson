@@ -11,15 +11,9 @@ func main() {
 		w.Write([]byte("Hello, This is GO-server!"))
 	}
 
-	html := `<html>
-	<body>
-	<h1>Hello</h1>
-	<p>This is a sample message.</p>
-	</body>
-	</html>`
-	tf, er := template.New("index").Parse(html)
+	tf, er := template.ParseFiles("template/hello.html")
 	if er != nil {
-		log.Fatal(er)
+		tf, _ = template.New("index").Parse("<html><body><h1>NO TEMPLATE.</h1></body></html>")
 	}
 	th := func(w http.ResponseWriter, rq *http.Request) {
 		er = tf.Execute(w, nil)
