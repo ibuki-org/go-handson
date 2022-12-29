@@ -11,6 +11,9 @@ func main() {
 		w.Write([]byte("Hello, This is GO-server!"))
 	}
 
+	http.HandleFunc("/hello", hh)
+
+	// template を利用する
 	tf, er := template.ParseFiles("template/hello.html")
 	if er != nil {
 		tf, _ = template.New("index").Parse("<html><body><h1>NO TEMPLATE.</h1></body></html>")
@@ -21,8 +24,6 @@ func main() {
 			log.Fatal(er)
 		}
 	}
-	http.HandleFunc("/hello", hh)
-	// template を利用する
 	http.HandleFunc("/template", th)
 
 	http.ListenAndServe("", nil)
